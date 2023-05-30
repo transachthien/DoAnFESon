@@ -10,6 +10,20 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { AlertComponent } from './_components';
 import { HomeComponent } from './home';
 import { ErrorInterceptor, JwtInterceptor, fakeBackendProvider } from './_helpers';
+import { ContentListComponent } from './content-list/content-list.component';
+import { CommonModule } from '@angular/common';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   imports: [
@@ -20,12 +34,28 @@ import { ErrorInterceptor, JwtInterceptor, fakeBackendProvider } from './_helper
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    CommonModule,
+    MatTableModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatIconModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AlertComponent,
-    HomeComponent
+    HomeComponent,
+    ContentListComponent
 
   ],
   providers: [
