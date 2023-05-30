@@ -33,7 +33,7 @@ export class ContentListComponent implements OnInit,AfterViewInit {
   pageSizeOptions: number[] = [3, 5, 7,10];
   countries: Country[] = [];
 
-  displayedColumns: string[] = ['Flag', 'Name', 'Area', 'Population','actions'];
+  displayedColumns: string[] = ['index','Flag', 'Name', 'Area', 'Population','actions'];
   dataSource: MatTableDataSource<any> = new MatTableDataSource()
   @ViewChild(MatSort) sort: MatSort;
 

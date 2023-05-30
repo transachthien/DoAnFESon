@@ -19,7 +19,11 @@
   
     <table mat-table [dataSource]="dataSource" matSort (matSortChange)="onMatSortChange()" matSortDirection="asc"
       multiTemplateDataRows class="mat-elevation-z8">
-  
+      <!-- stt column -->
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef>STT</th>
+        <mat-cell *matCellDef="let element; let i = dataIndex;">{{i+1}}</mat-cell>
+      </ng-container>
       <!-- Position Column -->
       <ng-container matColumnDef="Flag">
         <th mat-header-cell *matHeaderCellDef>Flag</th>
