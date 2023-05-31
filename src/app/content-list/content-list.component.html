@@ -26,30 +26,29 @@
       </ng-container>
       <!-- Position Column -->
       <ng-container matColumnDef="Flag">
-        <th mat-header-cell *matHeaderCellDef>Flag</th>
+        <th mat-header-cell *matHeaderCellDef>Tên Chủ Đề</th>
         <td mat-cell *matCellDef="let element">
-          <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + element.flag" height="50" width="50"
-            alt="country flag">
+          Đại Học FPT
         </td>
       </ng-container>
   
       <!-- Position Column -->
       <ng-container matColumnDef="Name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header="name"> 
-          Country Name
+          Tên Keyword
         </th>
         <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
       </ng-container>
   
       <!-- Name Column -->
       <ng-container matColumnDef="Area">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="area"> Area </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="area"> Ngày Tạo </th>
         <td mat-cell *matCellDef="let element"> {{element.area }} </td>
       </ng-container>
   
       <!-- Weight Column -->
       <ng-container matColumnDef="Population">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header="population">Population</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="population">Ngày Cập Nhật</th>
         <td mat-cell *matCellDef="let element"> {{element.population }} </td>
       </ng-container>
       <!-- action column -->
