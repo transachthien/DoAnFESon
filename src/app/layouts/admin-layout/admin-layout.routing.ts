@@ -14,6 +14,7 @@ import { AuthGuard } from 'app/_helpers';
 import { LoginComponent } from 'app/account/login.component';
 import { RegisterComponent } from 'app/account/register.component';
 import { ContentListComponent } from 'app/content-list/content-list.component';
+import { NewsOfKeywordComponent } from 'app/news-of-keyword/news-of-keyword.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -68,6 +69,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
     { path: 'list-content',        component: ContentListComponent },
+    { path: 'news-of-keyword',        component: NewsOfKeywordComponent},
 
     // { path: 'account', children: [
     //     { path: 'login', component: LoginComponent },

@@ -23,6 +23,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/typography', title: 'Thống kê bài viết theo tháng',  icon:'library_books', class: '' ,type: 'link',},
     { path: '/icons', title: 'Tin bài theo bao trí',  icon:'bubble_chart', class: '' ,type: 'link',},
     { path: '/icons', title: 'Tin bài theo mạng xã hội',  icon:'bubble_chart', class: '' ,type: 'link',},
+    { path: '/list-content', title: 'Danh sách theo chủ đề',  icon:'bubble_chart', class: '' ,type: 'link',},
+    { path: '/news-of-keyword', title: 'Tin bài theo keyword',  icon:'bubble_chart', class: '' ,type: 'link',},
     { path: '/maps', title: 'chủ đề',  icon:'location_on', class: '' ,type: 'dropDown',sub:[
       { path: '/dashboard', title: 'Danh sách theo chủ đề',  icon: 'dashboard', class: '',type: 'link', },
       { path: '/dashboard', title: 'Danh sách theo nguồn',  icon: 'dashboard', class: '',type: 'link', },

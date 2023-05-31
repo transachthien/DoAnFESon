@@ -24,6 +24,10 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { NewsOfKeywordComponent } from './news-of-keyword/news-of-keyword.component';
+import { MatDividerModule } from '@angular/material/divider';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   imports: [
@@ -48,14 +52,18 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatButtonModule,
     MatToolbarModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatDividerModule,
+    MatCheckboxModule,
+    MatButtonToggleModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AlertComponent,
     HomeComponent,
-    ContentListComponent
+    ContentListComponent,
+    NewsOfKeywordComponent
 
   ],
   providers: [

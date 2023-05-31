@@ -1,0 +1,55 @@
+<div class="main-content">
+  <mat-divider></mat-divider>
+    <div class="container-fluid">
+        <div class="row justify-content-between">
+            <div class="col-lg-2 col-md-6 col-sm-6">
+                <p> Nguồn tin: chính thống</p>
+            </div>
+            <div class="row col-lg-4 col-md-6 col-sm-6">
+              <div class="col-lg-2 col-md-6 col-sm-6">
+                <button mat-mini-fab aria-label="Example icon button with a home icon">
+                  <mat-icon>home</mat-icon>
+                </button>
+              </div>
+                  <div class="col-lg-4 col-md-6 col-sm-6">
+                    <mat-form-field>
+                      <mat-label>Chọn chủ đề</mat-label>
+                      <mat-select>
+                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                          {{food.viewValue}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-6">
+                    <mat-date-range-input [rangePicker]="picker">
+                      <input matStartDate placeholder="Start date">
+                      <input matEndDate placeholder="End date">
+                    </mat-date-range-input>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                  </div>
+            </div>
+
+        </div>
+        <mat-divider></mat-divider>
+        <div class="row justify-content-start" >
+          <mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color">
+            <mat-button-toggle value="news">Báo chí</mat-button-toggle>
+            <mat-button-toggle value="FaceBook">FaceBook</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="row justify-content-between" >
+          <div class="row justify-content col-lg-6 col-md-6 col-sm-6">
+          <p> Trạng thái: </p>
+          <mat-checkbox class="example-margin">Tích cực</mat-checkbox>
+          <mat-checkbox class="example-margin">Tiêu cực</mat-checkbox>
+          </div>
+          <div class="row justify-content-end col-lg-6 col-md-6 col-sm-6">
+            <p> Trạng thái: </p>
+            <mat-checkbox class="example-margin">Tích cực</mat-checkbox>
+            <mat-checkbox class="example-margin">Tiêu cực</mat-checkbox>
+            </div>
+        </div>
+    </div>
+</div>
