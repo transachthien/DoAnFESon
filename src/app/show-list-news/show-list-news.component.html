@@ -1,0 +1,162 @@
+<ng-container>
+    <div class="">
+        <div class="container d-flex">
+            <div class="item">
+                <a (click)="filter('')">
+                    <img src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" alt="">
+                    <h6>All products</h6>
+                </a>
+            </div>
+            <div class="item">
+                <a (click)="filter('coffee')">
+                    <img src="https://img.freepik.com/free-vector/coffee-love-foam-with-beans-cartoon-icon-illustration_138676-2575.jpg" alt="">
+                    <h6>Cà Phê </h6>
+                </a>
+            </div>
+            <div class="item">
+                <a (click)="filter('cake')">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4549/4549811.png" alt="">
+                    <h6>Bánh</h6>
+                </a>
+            </div>
+            <div class="item">
+                <a (click)="filter('tea')">
+                    <img style="width: 62px; margin-top: 5px;" src="https://cdn-icons-png.flaticon.com/512/233/233532.png" alt="">
+                    <h6>Trà</h6>
+                </a>
+            </div>
+            <div class="item">
+              <a (click)="filter('food')">
+                  <img style="width: 62px; margin-top: 5px;" src="https://i.pinimg.com/originals/dd/9d/c9/dd9dc9d83423bc037b511d73b29e6b80.png" alt="">
+                  <h6>Đồ Ăn</h6>
+              </a>
+          </div>
+          <div class="item">
+            <a (click)="filter('juice')">
+                <img style="width: 62px; margin-top: 5px;" src="https://cdn-icons-png.flaticon.com/512/1689/1689238.png" alt="">
+                <h6>Nước Trái Cây</h6>
+            </a>
+        </div>
+        </div>
+      </div>
+</ng-container>
+
+  <div class="container bootdey">
+      <div class="row">
+          <!-- Product Item -->
+          <ng-container *ngFor="let item of productList | filter:searchKey:'name'">
+            <div class="product-grid col-xs-6 col-sm-6 col-md-6">
+              <div class="product-item">
+                <div class="image">
+                  <a href="#"><img src="{{item.img}}" alt="Product 1"></a>
+                </div>
+                <div class="caption">
+                  <div class="name text-center">
+                    <a href="#">{{item.name}}</a>
+                  </div>
+                  <div class="price">
+                    <span>{{item.price}} đồng</span>
+                  </div>
+                  <div class="cart">
+                    <button type="button" (click)="addtocart(item)" class="btn btn-primary">Add to Cart</button>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-default wishlist" data-toggle="tooltip" data-placement="right" title="Wishlist"><i class="fa fa-heart"></i></button>
+                <button type="button" class="btn btn-default compare" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fa fa-circle-o"></i></button>
+              </div>
+            </div>
+      
+          </ng-container>
+          <!-- <ng-container *ngFor="let item of productsTea">
+            <div class="product-grid col-xs-12 col-sm-6 col-md-3">
+              <div class="product-item">
+                <div class="image">
+                  <a href="#"><img src="{{item.img}}" alt="Product 1"></a>
+                </div>
+                <div class="caption">
+                  <div class="name text-center">
+                    <a href="#">{{item.name}}</a>
+                  </div>
+                  <div class="price">
+                    <span>{{item.price}} đồng</span>
+                  </div>
+                  <div class="cart">
+                    <button type="button" (click)="addtocart(item)" class="btn btn-primary">Add to Cart</button>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-default wishlist" data-toggle="tooltip" data-placement="right" title="Wishlist"><i class="fa fa-heart"></i></button>
+                <button type="button" class="btn btn-default compare" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fa fa-circle-o"></i></button>
+              </div>
+            </div>
+      
+          </ng-container>
+          <ng-container *ngFor="let item of productsCake">
+            <div class="product-grid col-xs-12 col-sm-6 col-md-3">
+              <div class="product-item">
+                <div class="image">
+                  <a href="#"><img src="{{item.img}}" alt="Product 1"></a>
+                </div>
+                <div class="caption">
+                  <div class="name text-center">
+                    <a href="#">{{item.name}}</a>
+                  </div>
+                  <div class="price">
+                    <span>{{item.price}} đồng</span>
+                  </div>
+                  <div class="cart">
+                    <button type="button" (click)="addtocart(item)" class="btn btn-primary">Add to Cart</button>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-default wishlist" data-toggle="tooltip" data-placement="right" title="Wishlist"><i class="fa fa-heart"></i></button>
+                <button type="button" class="btn btn-default compare" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fa fa-circle-o"></i></button>
+              </div>
+            </div>
+      
+          </ng-container>
+          <ng-container *ngFor="let item of productsFood">
+            <div class="product-grid col-xs-12 col-sm-6 col-md-3">
+              <div class="product-item">
+                <div class="image">
+                  <a href="#"><img src="{{item.img}}" alt="Product 1"></a>
+                </div>
+                <div class="caption">
+                  <div class="name text-center">
+                    <a href="#">{{item.name}}</a>
+                  </div>
+                  <div class="price">
+                    <span>{{item.price}} đồng</span>
+                  </div>
+                  <div class="cart">
+                    <button type="button" (click)="addtocart(item)" class="btn btn-primary">Add to Cart</button>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-default wishlist" data-toggle="tooltip" data-placement="right" title="Wishlist"><i class="fa fa-heart"></i></button>
+                <button type="button" class="btn btn-default compare" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fa fa-circle-o"></i></button>
+              </div>
+            </div>
+      
+          </ng-container> -->
+          
+          <!-- <div class="product-grid col-xs-12 col-sm-6 col-md-3">
+            <div class="product-item">
+              <div class="image">
+                <a href="#"><img src="https://images.foody.vn/res/g5/48683/s120x120/29a0cbfe-a582-4b57-baf3-99823649-8134c0ad-211030124651.jpeg" alt="Product 1"></a>
+              </div>
+              <div class="caption">
+                <div class="name text-center">
+                  <a href="#">Product 1</a>
+                </div>
+                <div class="price">
+                  <span>$866.00</span>
+                </div>
+                <div class="cart">
+                  <button type="button" class="btn btn-primary">Add to Cart</button>
+                </div>
+              </div>
+              <button type="button" class="btn btn-default wishlist" data-toggle="tooltip" data-placement="right" title="Wishlist"><i class="fa fa-heart"></i></button>
+              <button type="button" class="btn btn-default compare" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fa fa-circle-o"></i></button>
+            </div>
+          </div> -->
+        </div>
+      </div>
+  

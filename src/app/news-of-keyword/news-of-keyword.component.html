@@ -5,29 +5,43 @@
             <div class="col-lg-2 col-md-6 col-sm-6">
                 <p> Nguồn tin: chính thống</p>
             </div>
-            <div class="row col-lg-4 col-md-6 col-sm-6">
-              <div class="col-lg-2 col-md-6 col-sm-6">
-                <button mat-mini-fab aria-label="Example icon button with a home icon">
-                  <mat-icon>home</mat-icon>
-                </button>
-              </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                    <mat-form-field>
-                      <mat-label>Chọn chủ đề</mat-label>
-                      <mat-select>
-                        <mat-option *ngFor="let food of foods" [value]="food.value">
-                          {{food.viewValue}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                    <mat-date-range-input [rangePicker]="picker">
-                      <input matStartDate placeholder="Start date">
-                      <input matEndDate placeholder="End date">
+            <div class="col-lg-2 col-md-6 col-sm-6">
+              <button mat-mini-fab aria-label="Example icon button with a home icon">
+                <mat-icon>home</mat-icon>
+              </button>
+            </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                  <mat-form-field>
+                    <mat-label>Chọn chủ đề</mat-label>
+                    <mat-select [(value)]="selected">
+                      <mat-option *ngFor="let value of listKeyWord" [value]="value">
+                        {{value}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                  <!-- <mat-date-range-input [rangePicker]="picker">
+                    <input matStartDate placeholder="Start date">
+                    <input matEndDate placeholder="End date">
+                  </mat-date-range-input>
+                  <mat-date-range-picker #picker></mat-date-range-picker> -->
+                  <mat-form-field class="display-block">
+                    <mat-label>Enter a date range</mat-label>
+                    <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                      <input matStartDate formControlName="start" placeholder="Start date">
+                      <input matEndDate formControlName="end" placeholder="End date">
                     </mat-date-range-input>
+                    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-date-range-picker #picker></mat-date-range-picker>
-                  </div>
+                  
+                    <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+                    <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+                  </mat-form-field>
+                </div>
+            <div class="row center col-lg-6 col-md-6 col-sm-6">
+              
             </div>
 
         </div>

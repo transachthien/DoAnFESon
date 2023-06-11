@@ -28,7 +28,9 @@ import { NewsOfKeywordComponent } from './news-of-keyword/news-of-keyword.compon
 import { MatDividerModule } from '@angular/material/divider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-
+import { ShowListNewsComponent } from './show-list-news/show-list-news.component';
+import { FilterPipe } from 'shared/filter.pipe';
+import { HelperService } from './_helpers/helper.service';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -63,14 +65,19 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     AlertComponent,
     HomeComponent,
     ContentListComponent,
-    NewsOfKeywordComponent
+    NewsOfKeywordComponent,
+    ShowListNewsComponent,
+    FilterPipe,
+    
+    
 
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     // provider used to create fake backend
-    fakeBackendProvider
+    fakeBackendProvider,
+    HelperService
   ],
   bootstrap: [AppComponent]
 })

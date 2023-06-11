@@ -15,6 +15,7 @@ import { LoginComponent } from 'app/account/login.component';
 import { RegisterComponent } from 'app/account/register.component';
 import { ContentListComponent } from 'app/content-list/content-list.component';
 import { NewsOfKeywordComponent } from 'app/news-of-keyword/news-of-keyword.component';
+import { ShowListNewsComponent } from 'app/show-list-news/show-list-news.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -70,6 +71,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
     { path: 'list-content',        component: ContentListComponent },
     { path: 'news-of-keyword',        component: NewsOfKeywordComponent},
+    { path: 'show-list-news',        component: ShowListNewsComponent},
 
     // { path: 'account', children: [
     //     { path: 'login', component: LoginComponent },

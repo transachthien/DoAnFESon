@@ -21,7 +21,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/user-profile', title: 'Danh sách theo chủ đề',  icon:'person', class: '',type: 'link', },
     { path: '/table-list', title: 'Danh sách theo cá nhân',  icon:'content_paste', class: '',type: 'link', },
     { path: '/typography', title: 'Thống kê bài viết theo tháng',  icon:'library_books', class: '' ,type: 'link',},
-    { path: '/icons', title: 'Tin bài theo bao trí',  icon:'bubble_chart', class: '' ,type: 'link',},
+    { path: '/show-list-news', title: 'Tin bài theo bao trí',  icon:'bubble_chart', class: '' ,type: 'link',},
     { path: '/icons', title: 'Tin bài theo mạng xã hội',  icon:'bubble_chart', class: '' ,type: 'link',},
     { path: '/list-content', title: 'Danh sách theo chủ đề',  icon:'bubble_chart', class: '' ,type: 'link',},
     { path: '/news-of-keyword', title: 'Tin bài theo keyword',  icon:'bubble_chart', class: '' ,type: 'link',},
