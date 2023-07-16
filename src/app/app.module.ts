@@ -31,6 +31,10 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { ShowListNewsComponent } from './show-list-news/show-list-news.component';
 import { FilterPipe } from 'shared/filter.pipe';
 import { HelperService } from './_helpers/helper.service';
+import {PoupMessageComponent} from "./poup-message/poup-message.component";
+import {MatDialogModule} from "@angular/material/dialog";
+import { MatCardModule } from '@angular/material/card';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -57,7 +61,10 @@ import { HelperService } from './_helpers/helper.service';
     MatSortModule,
     MatDividerModule,
     MatCheckboxModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatDialogModule,
+    MatCardModule,
+    NgxPaginationModule
   ],
   declarations: [
     AppComponent,
@@ -68,8 +75,7 @@ import { HelperService } from './_helpers/helper.service';
     NewsOfKeywordComponent,
     ShowListNewsComponent,
     FilterPipe,
-    
-    
+    PoupMessageComponent
 
   ],
   providers: [

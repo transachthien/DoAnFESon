@@ -20,8 +20,8 @@ export class HelperService {
     "Authorization": `Bearer ` + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0cmFuc2FjaHRoaWVuIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hcGkvbG9naW4iLCJleHAiOjE2ODYzODg1MzJ9.J_E02SJqieP63HVqI2_rwYxlw-znMRK7WQc_C_21i2c',
 }; }
 
-  public getAllProduct(name :string, category:string):Observable<any>{
-    return this.http.get<any>(`${this.apiServerUrl}/api/product/getAllProduct?name=${name}&category=${category}`,this.httpOptions)
+  public getAllProduct(name :string, category:string,page:number = 1):Observable<any>{
+    return this.http.get<any>(`${this.apiServerUrl}/api/product/getAllProduct?name=${name}&category=${category}&page=${page}`,this.httpOptions) as Observable<any>
   }
   public getProductDetail(id: number):Observable<any>{
     return this.http.get<any>(`${this.apiServerUrl}/api/product/getProductDetail?id=${id}`,this.httpOptions)

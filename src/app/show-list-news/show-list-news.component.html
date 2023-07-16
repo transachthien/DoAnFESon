@@ -1,50 +1,59 @@
-<ng-container>
-    <div class="">
-        <div class="container d-flex">
-            <div class="item">
-                <a (click)="filter('')">
-                    <img src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" alt="">
-                    <h6>All products</h6>
-                </a>
-            </div>
-            <div class="item">
-                <a (click)="filter('coffee')">
-                    <img src="https://img.freepik.com/free-vector/coffee-love-foam-with-beans-cartoon-icon-illustration_138676-2575.jpg" alt="">
-                    <h6>Cà Phê </h6>
-                </a>
-            </div>
-            <div class="item">
-                <a (click)="filter('cake')">
-                    <img src="https://cdn-icons-png.flaticon.com/512/4549/4549811.png" alt="">
-                    <h6>Bánh</h6>
-                </a>
-            </div>
-            <div class="item">
-                <a (click)="filter('tea')">
-                    <img style="width: 62px; margin-top: 5px;" src="https://cdn-icons-png.flaticon.com/512/233/233532.png" alt="">
-                    <h6>Trà</h6>
-                </a>
-            </div>
-            <div class="item">
-              <a (click)="filter('food')">
-                  <img style="width: 62px; margin-top: 5px;" src="https://i.pinimg.com/originals/dd/9d/c9/dd9dc9d83423bc037b511d73b29e6b80.png" alt="">
-                  <h6>Đồ Ăn</h6>
-              </a>
-          </div>
-          <div class="item">
-            <a (click)="filter('juice')">
-                <img style="width: 62px; margin-top: 5px;" src="https://cdn-icons-png.flaticon.com/512/1689/1689238.png" alt="">
-                <h6>Nước Trái Cây</h6>
-            </a>
-        </div>
-        </div>
-      </div>
-</ng-container>
+<br>
+<br>
+<br>
+<br>
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group no-border">
+      <input type="text" value="" class="form-control" [(ngModel)]="title" placeholder="Search...">
+      <button mat-raised-button type="submit" (click)="searchTitle()" class="btn btn-white btn-round btn-just-icon">
+        <i class="material-icons">search</i>
+        <div class="ripple-container"></div>
+      </button>
+    </div>
+<!--    <div class="input-group mb-3">-->
+<!--      <input-->
+<!--              type="text"-->
+<!--              class="form-control"-->
+<!--              placeholder="Search by title"-->
+<!--              [(ngModel)]="title"-->
+<!--      />-->
+<!--      <div class="input-group-append">-->
+<!--        <button-->
+<!--                class="btn btn-outline-secondary"-->
+<!--                type="button"-->
+<!--                (click)="searchTitle()"-->
+<!--        >-->
+<!--          Search-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+  </div>
+  </div>
+  <div class="col-md-12">
+    <pagination-controls
+            previousLabel="Prev"
+            nextLabel="Next"
+            [responsive]="true"
+            (pageChange)="handlePageChange($event)"
+    ></pagination-controls>
+    <select (change)="handlePageSizeChange($event)">
+      <option *ngFor="let size of pageSizes" [ngValue]="size">
+        {{ size }}
+      </option>
+    </select>
+  </div>
+
 
   <div class="container bootdey">
-      <div class="row">
+      <div class="row cont">
           <!-- Product Item -->
-          <ng-container *ngFor="let item of productList | filter:searchKey:'name'">
+          <ng-container *ngFor="let item of productList | paginate : {
+                  itemsPerPage: pageSize,
+                  currentPage: page,
+                  totalItems: count
+                };
+          let i = index">
             <div class="product-grid col-xs-6 col-sm-6 col-md-6">
               <div class="product-item">
                 <div class="image">
@@ -159,4 +168,3 @@
           </div> -->
         </div>
       </div>
-  

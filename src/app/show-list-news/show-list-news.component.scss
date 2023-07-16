@@ -236,3 +236,16 @@ product-item a {
 .item a:hover {
     color: blue;
 }
+.search-results {
+    overflow: scroll;
+}
+.cont{
+    overflow: auto;
+    height: 100%;
+}
+.ng-container{
+    overflow-y: auto;
+}
+.container{
+    overflow-y: auto;
+}
