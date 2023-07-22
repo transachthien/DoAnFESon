@@ -25,6 +25,7 @@ export class AccountService {
             }),
             "Access-Control-Allow-Origin": `${environment.apiUrl}`,
             "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+            "Authorization": `Bearer `+localStorage.getItem("user"),
         };
     }
 
@@ -70,6 +71,9 @@ export class AccountService {
     getById(id: string) {
         return this.http.get<User>(`${environment.apiUrl}/users/${id}`);
     }
+    getByUsername(username: string) {
+        return this.http.get<User>(`${environment.apiUrl}/api/user/get?username=${username}`);
+    }
 
     update(id: string, params: any) {
         return this.http.put(`${environment.apiUrl}/users/${id}`, params)
@@ -85,6 +89,9 @@ export class AccountService {
                 }
                 return x;
             }));
+    }
+    updateUser(user:User) :Observable<any> {
+        return this.http.post<any>(`${environment.apiUrl}/api/user/update`,user,this.httpOptions);
     }
 
     delete(id: string) {

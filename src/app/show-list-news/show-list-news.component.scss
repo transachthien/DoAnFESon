@@ -68,7 +68,7 @@ product-item a {
     bottom: -87pt;
     display: block;
     min-width: 100%;
-    min-height: 180px;
+    min-height: 250px;
     padding: 6px 15px;
     margin: 0;
     background: #fff;
@@ -111,7 +111,11 @@ product-item a {
 
 .product-grid .product-item:hover .caption {
     -webkit-transform: translatey(-83px);
-    transform: translatey(-83px)
+    transform: translatey(-83px);
+    //min-width: 0;
+    //text-overflow: ellipsis;
+    //white-space: nowrap;
+    //overflow: hidden;
 }
 
 .product-grid .product-item .compare,

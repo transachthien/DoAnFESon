@@ -2,12 +2,29 @@
 <br>
 <br>
 <br>
-<div class="list row">
-  <div class="col-md-8">
-    <div class="input-group no-border">
-      <input type="text" value="" class="form-control" [(ngModel)]="title" placeholder="Search...">
-      <button mat-raised-button type="submit" (click)="searchTitle()" class="btn btn-white btn-round btn-just-icon">
+  <div class="d-flex flex-row justify-content-around">
+    <div class="form-group p-2 justify-content-around">
+      <input type="text" value="" [(ngModel)]="title" placeholder="Search...">
+      <button mat-raised-button type="submit" (click)="searchTitle()" class="btn btn-block btn-round btn-just-icon">
         <i class="material-icons">search</i>
+        <div class="ripple-container"></div>
+      </button>
+    </div>
+    <div class="p-2 d-flex flex-row" >
+      <mat-form-field>
+        <mat-label>Add keywords</mat-label>
+        <mat-select [formControl]="keyWordSelect" multiple>
+          <mat-select-trigger>
+            {{keyWordSelect.value?.[0] || ''}}
+            <span *ngIf="(keyWordSelect.value?.length || 0) > 1" class="example-additional-selection">
+        (+{{(keyWordSelect.value?.length || 0) - 1}} {{keyWordSelect.value?.length === 2 ? 'other' : 'others'}})
+      </span>
+          </mat-select-trigger>
+          <mat-option *ngFor="let topping of listKeyWord" [value]="topping">{{topping}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button type="submit" (click)="addMoreKeyWord()" class="btn btn-round btn-just-icon" title="Add more keyword">
+        <i class="material-icons">add</i>
         <div class="ripple-container"></div>
       </button>
     </div>
@@ -29,7 +46,6 @@
 <!--      </div>-->
 <!--    </div>-->
   </div>
-  </div>
   <div class="col-md-12">
     <pagination-controls
             previousLabel="Prev"
@@ -37,11 +53,11 @@
             [responsive]="true"
             (pageChange)="handlePageChange($event)"
     ></pagination-controls>
-    <select (change)="handlePageSizeChange($event)">
-      <option *ngFor="let size of pageSizes" [ngValue]="size">
-        {{ size }}
-      </option>
-    </select>
+<!--    <select (change)="handlePageSizeChange($event)">-->
+<!--      <option *ngFor="let size of pageSizes" [ngValue]="size">-->
+<!--        {{ size }}-->
+<!--      </option>-->
+<!--    </select>-->
   </div>
 
 
@@ -57,17 +73,17 @@
             <div class="product-grid col-xs-6 col-sm-6 col-md-6">
               <div class="product-item">
                 <div class="image">
-                  <a href="#"><img src="{{item.img}}" alt="Product 1"></a>
+                  <a href="{{item.link}}"><img src="/assets/img/angular2-logo-red.png" alt="Product 1"></a>
                 </div>
                 <div class="caption">
                   <div class="name text-center">
-                    <a href="#">{{item.name}}</a>
+                    <a href="{{item.link}}">{{item.text_summary}}</a>
                   </div>
                   <div class="price">
-                    <span>{{item.price}} đồng</span>
+                    <span>{{item.datePublish}}</span>
                   </div>
                   <div class="cart">
-                    <button type="button" (click)="addtocart(item)" class="btn btn-primary">Add to Cart</button>
+                    <button type="button" (click)="addtocart(item)" class="btn btn-primary">Lưu bài viết</button>
                   </div>
                 </div>
                 <button type="button" class="btn btn-default wishlist" data-toggle="tooltip" data-placement="right" title="Wishlist"><i class="fa fa-heart"></i></button>

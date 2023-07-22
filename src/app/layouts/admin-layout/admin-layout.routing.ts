@@ -16,6 +16,7 @@ import { RegisterComponent } from 'app/account/register.component';
 import { ContentListComponent } from 'app/content-list/content-list.component';
 import { NewsOfKeywordComponent } from 'app/news-of-keyword/news-of-keyword.component';
 import { ShowListNewsComponent } from 'app/show-list-news/show-list-news.component';
+import {ShowListGgComponent} from "../../show-list-gg/show-list-gg.component";
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -72,6 +73,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'list-content',        component: ContentListComponent },
     { path: 'news-of-keyword',        component: NewsOfKeywordComponent},
     { path: 'show-list-news',        component: ShowListNewsComponent},
+    { path: 'show-list-gg',        component: ShowListGgComponent},
 
     // { path: 'account', children: [
     //     { path: 'login', component: LoginComponent },

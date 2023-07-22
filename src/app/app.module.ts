@@ -35,6 +35,48 @@ import {PoupMessageComponent} from "./poup-message/poup-message.component";
 import {MatDialogModule} from "@angular/material/dialog";
 import { MatCardModule } from '@angular/material/card';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
+import { ShowListGgComponent } from './show-list-gg/show-list-gg.component';
+const customNotifierOptions: NotifierOptions = {
+  position: {
+    horizontal: {
+      position: 'right',
+      distance: 12
+    },
+    vertical: {
+      position: 'top',
+      distance: 12,
+      gap: 10
+    }
+  },
+  theme: 'material',
+  behaviour: {
+    autoHide: 5000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 4
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease'
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease'
+    },
+    overlap: 150
+  }
+};
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -64,7 +106,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatButtonToggleModule,
     MatDialogModule,
     MatCardModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NotifierModule.withConfig(customNotifierOptions)
   ],
   declarations: [
     AppComponent,
@@ -75,7 +118,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NewsOfKeywordComponent,
     ShowListNewsComponent,
     FilterPipe,
-    PoupMessageComponent
+    PoupMessageComponent,
+    ShowListGgComponent,
 
   ],
   providers: [

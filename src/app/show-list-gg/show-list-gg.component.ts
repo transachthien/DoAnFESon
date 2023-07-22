@@ -1,21 +1,20 @@
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { HelperService } from 'app/_helpers/helper.service';
-import { NewtDTO } from 'app/_models/newDTO';
+import {NotifierService} from "angular-notifier";
+import {NewtDTO} from "../_models/newDTO";
 import {FormControl} from "@angular/forms";
-import jwt_decode from 'jwt-decode';
-import jwtDecode from "jwt-decode";
-import {AccountService} from "../_services";
 import {User} from "../_models";
-import { NotifierService } from 'angular-notifier';
+import {HelperService} from "../_helpers/helper.service";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {AccountService} from "../_services";
+import jwtDecode from "jwt-decode";
+
 declare var $: any;
 @Component({
-  selector: 'app-show-list-news',
-  templateUrl: './show-list-news.component.html',
-  styleUrls: ['./show-list-news.component.scss']
+  selector: 'app-show-list-gg',
+  templateUrl: './show-list-gg.component.html',
+  styleUrls: ['./show-list-gg.component.scss']
 })
-export class ShowListNewsComponent implements OnInit {
-
+export class ShowListGgComponent implements OnInit {
   private notifier: NotifierService;
   public productList :  NewtDTO[] = [];
   public filterCategory :  NewtDTO[] = [];
@@ -41,16 +40,14 @@ export class ShowListNewsComponent implements OnInit {
     // })
     this.getUserName();
     this.getUser();
-    this.getAllListKeyWord();
-
   }
   public getAllProduct(): void{
-    this.helperService.getAllProduct(this.user.listKeyWord,"facebook",this.page).subscribe((res: NewtDTO[])=>{
-      this.productList = res;
-      this.filterCategory = res;
-    },(error: HttpErrorResponse)=>{
-      alert(error.message);
-    }
+    this.helperService.getAllProduct(this.user.listKeyWord,"new",this.page).subscribe((res: NewtDTO[])=>{
+          this.productList = res;
+          this.filterCategory = res;
+        },(error: HttpErrorResponse)=>{
+          alert(error.message);
+        }
     );
   }
   public addtocart(item: any){
@@ -76,11 +73,11 @@ export class ShowListNewsComponent implements OnInit {
   }
   public filter(category:string){
     this.filterCategory = this.productList
-    .filter((a:any)=>{
-      if(a.category == category || category==''){
-        return a;
-      }
-    })
+        .filter((a:any)=>{
+          if(a.category == category || category==''){
+            return a;
+          }
+        })
   }
   public getUserName(){
     let token = jwtDecode<any>(localStorage.getItem("user"));
@@ -93,12 +90,13 @@ export class ShowListNewsComponent implements OnInit {
           if(this.user.listKeyWord ===null){
             this.user.listKeyWord =[];
           }
-      if(this.user.listNewSave ===null){
-        this.user.listNewSave =[];
-      }
-      this.keyWordSelect.setValue(this.user.listKeyWord);
-      this.getAllProduct();
-      this.getTotal();
+          if(this.user.listNewSave ===null){
+            this.user.listNewSave =[];
+          }
+          this.keyWordSelect.setValue(this.user.listKeyWord);
+          this.getAllProduct();
+          this.getTotal();
+          this.getAllListKeyWord();
         },(error: HttpErrorResponse)=>{
           alert(error.message);
         }
@@ -145,7 +143,7 @@ export class ShowListNewsComponent implements OnInit {
   onScroll(ev: any):void {
     console.log('scrolled!!');
     this.helperService
-        .getAllProduct(this.user.listKeyWord,"facebook",++this.page)
+        .getAllProduct(this.user.listKeyWord,"new",++this.page)
         .subscribe((cats: NewtDTO[]) => {
           this.productList.push(...cats);
         });
@@ -161,7 +159,7 @@ export class ShowListNewsComponent implements OnInit {
     this.getAllProduct();
   }
   public getTotal(): void{
-    this.helperService.getTotalProduct(this.user.listKeyWord,"facebook").subscribe((res: number)=>{
+    this.helperService.getTotalProduct(this.user.listKeyWord,"new").subscribe((res: number)=>{
           this.count = res;
         },(error: HttpErrorResponse)=>{
           alert(error.message);
@@ -213,4 +211,5 @@ export class ShowListNewsComponent implements OnInit {
     this.page = 1;
     this.getAllProduct();
   }
+
 }

@@ -4,4 +4,6 @@
     password?: string;
     firstName?: string;
     token?: string;
+    listKeyWord?:string[];
+    listNewSave?:string[];
 }
