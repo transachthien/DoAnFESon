@@ -17,6 +17,7 @@ import { ContentListComponent } from 'app/content-list/content-list.component';
 import { NewsOfKeywordComponent } from 'app/news-of-keyword/news-of-keyword.component';
 import { ShowListNewsComponent } from 'app/show-list-news/show-list-news.component';
 import {ShowListGgComponent} from "../../show-list-gg/show-list-gg.component";
+import {SaveNewsComponent} from "../../save-news/save-news.component";
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -61,6 +62,7 @@ export const AdminLayoutRoutes: Routes = [
     //         component: UpgradeComponent
     //     }]
     // }
+    { path: 'login', component: LoginComponent },
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
@@ -71,7 +73,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
     { path: 'list-content',        component: ContentListComponent },
-    { path: 'news-of-keyword',        component: NewsOfKeywordComponent},
+    { path: 'news-of-keyword',        component: SaveNewsComponent},
     { path: 'show-list-news',        component: ShowListNewsComponent},
     { path: 'show-list-gg',        component: ShowListGgComponent},
 
@@ -79,6 +81,5 @@ export const AdminLayoutRoutes: Routes = [
     //     { path: 'login', component: LoginComponent },
     //     { path: 'register', component: RegisterComponent }
     // ] },
-    { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent }
 ];

@@ -44,4 +44,9 @@ export class HelperService {
     return this.http.post<any>(`${this.apiServerUrl}/api/product/find`,body,this.httpOptions) as Observable<any>
 
   }
+  public getAllListNewSave(name :string[]):Observable<any>{
+    const body = {name:name};
+    return this.http.post<any>(`${this.apiServerUrl}/api/product/findListNewSave`,body,this.httpOptions) as Observable<any>
+
+  }
 }

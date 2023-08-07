@@ -37,6 +37,7 @@ import { MatCardModule } from '@angular/material/card';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { ShowListGgComponent } from './show-list-gg/show-list-gg.component';
+import { SaveNewsComponent } from './save-news/save-news.component';
 const customNotifierOptions: NotifierOptions = {
   position: {
     horizontal: {
@@ -120,6 +121,7 @@ const customNotifierOptions: NotifierOptions = {
     FilterPipe,
     PoupMessageComponent,
     ShowListGgComponent,
+    SaveNewsComponent,
 
   ],
   providers: [

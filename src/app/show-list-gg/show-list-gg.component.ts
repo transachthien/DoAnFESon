@@ -22,7 +22,9 @@ export class ShowListGgComponent implements OnInit {
   currentIndex = -1;
   title = '';
   keyWordSelect = new FormControl([]);
+  keyKind = new FormControl([]);
   listKeyWord: string[] ;
+  listKind: string[] = ['POS'];
   username:string;
   user:User;
 
@@ -53,12 +55,12 @@ export class ShowListGgComponent implements OnInit {
   public addtocart(item: any){
     // this.cartService.addtoCart(item);
     if(this.user.listNewSave === null){
-      this.user.listNewSave.push(item._id);
+      this.user.listNewSave.push(item.id);
       this.updateUser();
       this.showNotification2(2,"Lưu bài viết thành công",'top','right');
     }else{
-      if(!this.user.listNewSave.includes(item._id)){
-        this.user.listNewSave.push(item._id);
+      if(!this.user.listNewSave.includes(item.id)){
+        this.user.listNewSave.push(item.id);
         this.updateUser();
         this.showNotification2(2,"Lưu bài viết thành công",'top','right');
       }else{
@@ -93,10 +95,11 @@ export class ShowListGgComponent implements OnInit {
           if(this.user.listNewSave ===null){
             this.user.listNewSave =[];
           }
+          this.listKeyWord=this.user.listKeyWord;
           this.keyWordSelect.setValue(this.user.listKeyWord);
           this.getAllProduct();
           this.getTotal();
-          this.getAllListKeyWord();
+          // this.getAllListKeyWord();
         },(error: HttpErrorResponse)=>{
           alert(error.message);
         }

@@ -1,13 +1,13 @@
 export interface NewtDTO{
-    id :number;
-    name : string;
-    price : number;
-    img : string;
+    id :string;
     quantity :number;
     link:string;
-    key_word:string;
+    keyword:string;
     datePublish:string;
     text_summary:string;
     category:string;
+    clustering:string;
+    kind:string;
+
 
 }

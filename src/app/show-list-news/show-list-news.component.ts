@@ -41,7 +41,7 @@ export class ShowListNewsComponent implements OnInit {
     // })
     this.getUserName();
     this.getUser();
-    this.getAllListKeyWord();
+    // this.getAllListKeyWord();
 
   }
   public getAllProduct(): void{
@@ -56,12 +56,12 @@ export class ShowListNewsComponent implements OnInit {
   public addtocart(item: any){
     // this.cartService.addtoCart(item);
     if(this.user.listNewSave === null){
-      this.user.listNewSave.push(item._id);
+      this.user.listNewSave.push(item.id);
       this.updateUser();
       this.showNotification2(2,"Lưu bài viết thành công",'top','right');
     }else{
-      if(!this.user.listNewSave.includes(item._id)){
-        this.user.listNewSave.push(item._id);
+      if(!this.user.listNewSave.includes(item.id)){
+        this.user.listNewSave.push(item.id);
         this.updateUser();
         this.showNotification2(2,"Lưu bài viết thành công",'top','right');
       }else{
@@ -96,6 +96,7 @@ export class ShowListNewsComponent implements OnInit {
       if(this.user.listNewSave ===null){
         this.user.listNewSave =[];
       }
+      this.listKeyWord=this.user.listKeyWord;
       this.keyWordSelect.setValue(this.user.listKeyWord);
       this.getAllProduct();
       this.getTotal();

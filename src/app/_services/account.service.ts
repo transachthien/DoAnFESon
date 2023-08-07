@@ -41,7 +41,7 @@ export class AccountService {
             headers: new HttpHeaders({
                 'Content-Type': 'application/x-www-form-urlencoded',
             }),
-            "Access-Control-Allow-Origin": "http://localhost:4200",
+            "Access-Control-Allow-Origin": `${environment.apiUrl}`,
             "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
         };
         return this.http.post<User>(`${environment.apiUrl}/api/login`,body.toString(),httpOptions)
