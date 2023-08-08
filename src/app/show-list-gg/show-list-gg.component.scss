@@ -3,13 +3,7 @@
 
 body{
   margin-top:20px;
-  background: #edf0f5;
-}
-
-product-item a {
-  display: block;
-  color: #434a54;
-  font-weight: 700
+  background: #edf0f5;    
 }
 
 .product-item a:hover {
@@ -26,13 +20,15 @@ product-item a {
 }
 
 .product-grid .product-item {
+  margin: auto !important;
+  margin-top: 20px;
   position: relative;
   width: 100%;
   border: none;
   padding-bottom: 4pc;
   margin-bottom: 30px;
-  border-radius: 3px;
-  box-shadow: 0 1px 2px 0 #ccd1d9;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   overflow: hidden;
   z-index: 1
 }
@@ -67,7 +63,7 @@ product-item a {
   position: absolute;
   bottom: -87pt;
   display: block;
-  min-width: 100%;
+  width: 100%;
   min-height: 250px;
   padding: 6px 15px;
   margin: 0;
@@ -79,7 +75,6 @@ product-item a {
 
 .product-grid .product-item .caption .cart {
   display: block;
-  padding: 27px 0 0;
   clear: both
 }
 
@@ -111,7 +106,7 @@ product-item a {
 
 .product-grid .product-item:hover .caption {
   -webkit-transform: translatey(-83px);
-  transform: translatey(-83px)
+  transform: translatey(-83px);
 }
 
 .product-grid .product-item .compare,
@@ -187,13 +182,13 @@ product-item a {
 
 @media (min-width:992px) {
   .product-grid .product-item {
-    width: 50%
+      width: 50%
   }
 }
 
 @media (min-width:1200px) {
   .product-grid .product-item {
-    width: 50%
+      width: 50%
   }
 }
 .topnav {
@@ -248,4 +243,14 @@ product-item a {
 }
 .container{
   overflow-y: auto;
+}
+
+.product-link{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-align: left !important;
+  text-transform: capitalize !important;
 }

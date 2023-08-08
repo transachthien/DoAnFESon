@@ -3,16 +3,20 @@
 <br>
 <br>
 <div class="d-flex flex-row justify-content-around">
-    <div class="form-group p-2 justify-content-around">
-        <input type="text" value="" [(ngModel)]="title" placeholder="Search...">
-        <button mat-raised-button type="submit" (click)="searchTitle()" class="btn btn-block btn-round btn-just-icon">
-            <i class="material-icons">search</i>
-            <div class="ripple-container"></div>
-        </button>
+
+    <div class="col-3">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Tìm kiếm..." aria-label="Tìm kiếm..." aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn m-0 btn-primary" type="submit" (click)="searchTitle()">Tìm</button>
+        </div>
+      </div>
     </div>
-    <div class="p-2 d-flex flex-row" >
+    
+
+    <div class="d-flex flex-row col-3" >
         <mat-form-field>
-            <mat-label>Add keywords</mat-label>
+            <mat-label>Thêm keyword</mat-label>
             <mat-select [formControl]="keyWordSelect" multiple>
                 <mat-select-trigger>
                     {{keyWordSelect.value?.[0] || ''}}
@@ -28,7 +32,8 @@
             <div class="ripple-container"></div>
         </button>
     </div>
-    <div class="p-2 d-flex flex-row" >
+
+    <div class="d-flex flex-row col-3">
         <mat-form-field>
             <mat-label>Thêm đánh giá</mat-label>
             <mat-select [formControl]="keyKind" multiple>
@@ -88,14 +93,14 @@
                   totalItems: count
                 };
           let i = index">
-            <div class="product-grid col-xs-6 col-sm-6 col-md-6">
+            <div class="product-grid col-xs-6 col-sm-6 col-md-6 mt-3 mb-3">
                 <div class="product-item">
                     <div class="image">
                         <a href="{{item.link}}"><img src="/assets/img/angular2-logo-red.png" alt="Product 1"></a>
                     </div>
                     <div class="caption">
                         <div class="name text-center">
-                            <a href="{{item.link}}">{{item.text_summary}}</a>
+                            <a class="product-link" href="{{item.link}}">{{item.text_summary}}</a>
                         </div>
                         <div class="price">
                             <span>{{item.datePublish}}</span>

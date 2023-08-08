@@ -1,5 +1,4 @@
 <div class="material-table">
-    <h2>Tin bài đã lưu</h2>
     <div class="row justify-content-between">
         <div class="p-2 d-flex flex-row" >
             <mat-form-field>
@@ -8,8 +7,8 @@
                     <mat-select-trigger>
                         {{keyWordSelect.value?.[0] || ''}}
                         <span *ngIf="(keyWordSelect.value?.length || 0) > 1" class="example-additional-selection">
-        (+{{(keyWordSelect.value?.length || 0) - 1}} {{keyWordSelect.value?.length === 2 ? 'other' : 'others'}})
-      </span>
+                            (+{{(keyWordSelect.value?.length || 0) - 1}} {{keyWordSelect.value?.length === 2 ? 'other' : 'others'}})
+                        </span>
                     </mat-select-trigger>
                     <mat-option disabled *ngFor="let topping of listKeyWord" [value]="topping">{{topping}}</mat-option>
                 </mat-select>
@@ -28,9 +27,8 @@
     </div>
 
 
-
     <table mat-table [dataSource]="dataSource" matSort (matSortChange)="onMatSortChange()" matSortDirection="asc"
-           multiTemplateDataRows class="mat-elevation-z8">
+           multiTemplateDataRows class="mat-elevation-z8 customTable">
         <!-- stt column -->
         <ng-container matColumnDef="index">
             <th mat-header-cell *matHeaderCellDef>STT</th>

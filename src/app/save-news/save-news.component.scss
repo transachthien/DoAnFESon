@@ -47,3 +47,27 @@ div.material-table {
     opacity: 0.5;
   }
 }
+
+.customTable th:nth-child(1){
+  width: 7%;
+}
+
+.customTable th:nth-child(2){
+  width: 15%;
+}
+
+.customTable th:nth-child(3){
+  width: 15%;
+}
+
+.customTable th:nth-child(4){
+  width: 10%;
+}
+
+.customTable td:nth-child(1){
+  max-height: 200px !important;
+}
+
+
+
+
