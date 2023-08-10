@@ -4,9 +4,11 @@ div.material-table {
     width: 100%;
   }
 
-  tr.example-detail-row {
-    height: 0;
-  }
+  // tr.example-detail-row {
+  //   height: 0;
+  // }
+
+
 
   tr.example-element-row:not(.example-expanded-row):hover {
     background: whitesmoke;
@@ -17,7 +19,17 @@ div.material-table {
   }
 
   .example-element-row td {
-    border-bottom-width: 0;
+    
+  }
+
+  .example-element-row td:nth-child(5){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    text-align: left !important;
+    text-transform: capitalize !important;
   }
 
   .example-element-detail {
@@ -64,10 +76,9 @@ div.material-table {
   width: 10%;
 }
 
-.customTable td:nth-child(1){
-  max-height: 200px !important;
+.customTable th:nth-child(5){
+  width: 40%;
 }
-
 
 
 
