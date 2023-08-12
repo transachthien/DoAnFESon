@@ -222,10 +222,9 @@ export class SaveNewsComponent implements OnInit,AfterViewInit {
     this.user.listNewSave = this.user.listNewSave.filter(x=>{
       return x !== row.id;
     })
-    this.dataSource = new MatTableDataSource(this.listNewSave.filter(x=>{
+    this.dataSource.data = this.dataSource.data.filter(x=>{
       return x.id !== row.id;
-    }));
-    this.dataSource.paginator = this.paginator;
+    });
     this.updateUser();
     this.showNotification2(2,"Xóa bài viết thành công",'top','right');
   }

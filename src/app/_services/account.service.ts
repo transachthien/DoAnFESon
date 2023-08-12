@@ -1,5 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -15,6 +15,7 @@ export class AccountService {
 
     constructor(
         private router: Router,
+        private route: ActivatedRoute,
         private http: HttpClient
     ) {
         this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
@@ -41,7 +42,7 @@ export class AccountService {
             headers: new HttpHeaders({
                 'Content-Type': 'application/x-www-form-urlencoded',
             }),
-            "Access-Control-Allow-Origin": `${environment.apiUrl}`,
+            "Access-Control-Allow-Origin": `*`,
             "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
         };
         return this.http.post<User>(`${environment.apiUrl}/api/login`,body.toString(),httpOptions)
@@ -57,7 +58,7 @@ export class AccountService {
         // remove user from local storage and set current user to null
         localStorage.removeItem('user');
         this.userSubject.next(null);
-        this.router.navigate(['/account/login']);
+        this.router.navigate(['/login'], { relativeTo: this.route });
     }
 
     register(user: User) {

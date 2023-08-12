@@ -57,18 +57,18 @@
               </ng-container>
 
          Weight Column
-              <ncontainerg- matColumnDef="Population">
+              <ng-container matColumnDef="Population">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header="population">Nội dung</th>
                 <td  mat-cell *matCellDef="let element">
                     <div>
-                        <a href="#">aaaaaaaaaa</a>
+                        <a href="{{element.link}}">LINK</a>
                     </div>    
                   
-                        {{element.text_summary }} 
+                        {{element.text_summary}}
                        
              
                 </td>
-              </ncontainerg->
+              </ng-container>
          action column
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef mat-sort-header="population">Tác vụ</th>
@@ -76,8 +76,9 @@
                  
                     <button mat-icon-button>
                         <mat-icon>launch</mat-icon>
+                        <a href="{{element.link}}"></a>
                     </button>
-                    <button mat-icon-button (click)="onDelete(row)">
+                    <button mat-icon-button (click)="onDelete(element)">
                         <mat-icon color="warn">delete</mat-icon>
                     </button>
              

@@ -73,7 +73,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
     { path: 'list-content',        component: ContentListComponent },
-    { path: 'news-of-keyword',        component: SaveNewsComponent},
+    { path: 'news-save',        component: SaveNewsComponent},
     { path: 'show-list-news',        component: ShowListNewsComponent},
     { path: 'show-list-gg',        component: ShowListGgComponent},
 

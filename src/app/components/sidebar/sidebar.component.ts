@@ -25,7 +25,7 @@ export const ROUTES: RouteInfo[] = [
     // { path: '/table-list', title: 'Danh sách theo cá nhân',  icon:'content_paste', class: '',type: 'link', },
     { path: '/show-list-news', title: 'Tin bài theo FaceBook',  icon:'bubble_chart', class: '' ,type: 'link',},
     { path: '/show-list-gg', title: 'Tin bài theo bao trí',  icon:'bubble_chart', class: '' ,type: 'link',},
-    { path: '/news-of-keyword', title: 'Tin bài đã lưu',  icon:'bubble_chart', class: '' ,type: 'link',},
+    { path: '/news-save', title: 'Tin bài đã lưu',  icon:'bubble_chart', class: '' ,type: 'link',},
     // { path: '/maps', title: 'chủ đề',  icon:'location_on', class: '' ,type: 'dropDown',sub:[
     //   { path: '/dashboard', title: 'Danh sách theo chủ đề',  icon: 'dashboard', class: '',type: 'link', },
     //   { path: '/dashboard', title: 'Danh sách theo nguồn',  icon: 'dashboard', class: '',type: 'link', },

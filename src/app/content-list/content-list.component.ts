@@ -171,8 +171,9 @@ export class ContentListComponent implements OnInit,AfterViewInit {
       return x !== row;
     })
     this.keyWordSelect.setValue(this.user.listKeyWord);
-    this.dataSource = new MatTableDataSource(this.user.listKeyWord);
-    this.dataSource.paginator = this.paginator;
+    this.dataSource.data = this.dataSource.data.filter(x=>{
+      return x !== row;
+    });
     this.updateUser();
 
 
