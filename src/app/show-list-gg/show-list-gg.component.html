@@ -12,6 +12,11 @@
         </div>
       </div>
     </div>
+    <select #kindCluster (change)= "onSelected(kindCluster.value) " class="custom-select col-3">
+        <option value="0">Tất Cả</option>
+        <option value="1">Tích Cực</option>
+        <option value="2">Tiêu Cực</option>
+    </select>
     
 
     <div class="d-flex flex-row col-3" >
@@ -33,24 +38,24 @@
         </button>
     </div>
 
-    <div class="d-flex flex-row col-3">
-        <mat-form-field>
-            <mat-label>Thêm đánh giá</mat-label>
-            <mat-select [formControl]="keyKind" multiple>
-                <mat-select-trigger>
-                    {{keyKind.value?.[0] || ''}}
-                    <span *ngIf="(keyKind.value?.length || 0) > 1" class="example-additional-selection">
-        (+{{(keyKind.value?.length || 0) - 1}} {{keyKind.value?.length === 2 ? 'other' : 'others'}})
-      </span>
-                </mat-select-trigger>
-                <mat-option *ngFor="let topping of listKeyWord" [value]="topping" disabled="true">{{topping}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <button mat-raised-button type="submit" (click)="addMoreKeyWord()" class="btn btn-round btn-just-icon" title="Add more keyword">
-            <i class="material-icons">add</i>
-            <div class="ripple-container"></div>
-        </button>
-    </div>
+<!--    <div class="d-flex flex-row col-3">-->
+<!--        <mat-form-field>-->
+<!--            <mat-label>Thêm đánh giá</mat-label>-->
+<!--            <mat-select [formControl]="keyKind" multiple>-->
+<!--                <mat-select-trigger>-->
+<!--                    {{keyKind.value?.[0] || ''}}-->
+<!--                    <span *ngIf="(keyKind.value?.length || 0) > 1" class="example-additional-selection">-->
+<!--        (+{{(keyKind.value?.length || 0) - 1}} {{keyKind.value?.length === 2 ? 'other' : 'others'}})-->
+<!--      </span>-->
+<!--                </mat-select-trigger>-->
+<!--                <mat-option *ngFor="let topping of listKeyWord" [value]="topping" disabled="true">{{topping}}</mat-option>-->
+<!--            </mat-select>-->
+<!--        </mat-form-field>-->
+<!--        <button mat-raised-button type="submit" (click)="addMoreKeyWord()" class="btn btn-round btn-just-icon" title="Add more keyword">-->
+<!--            <i class="material-icons">add</i>-->
+<!--            <div class="ripple-container"></div>-->
+<!--        </button>-->
+<!--    </div>-->
     <!--    <div class="input-group mb-3">-->
     <!--      <input-->
     <!--              type="text"-->

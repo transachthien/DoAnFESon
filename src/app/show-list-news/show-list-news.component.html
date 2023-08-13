@@ -21,7 +21,7 @@
     </div>
     
 
-    <select class="custom-select col-3">
+    <select #kindCluster (change)= "onSelected(kindCluster.value) " class="custom-select col-3">
       <option value="0">Tất Cả</option>
       <option value="1">Tích Cực</option>
       <option value="2">Tiêu Cực</option>

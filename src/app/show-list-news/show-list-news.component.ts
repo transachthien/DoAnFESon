@@ -31,6 +31,7 @@ export class ShowListNewsComponent implements OnInit {
   count = 0;
   pageSize = 6;
   pageSizes = [3, 6, 9];
+  selectedKindCluster = '0';
   constructor(private helperService: HelperService, private http :HttpClient, private accountService:AccountService,
               notifier: NotifierService){
     this.notifier = notifier;
@@ -45,7 +46,7 @@ export class ShowListNewsComponent implements OnInit {
 
   }
   public getAllProduct(): void{
-    this.helperService.getAllProduct(this.user.listKeyWord,"facebook",this.page).subscribe((res: NewtDTO[])=>{
+    this.helperService.getAllProduct(this.user.listKeyWord,"facebook", this.selectedKindCluster,this.page).subscribe((res: NewtDTO[])=>{
       this.productList = res;
       this.filterCategory = res;
     },(error: HttpErrorResponse)=>{
@@ -146,7 +147,7 @@ export class ShowListNewsComponent implements OnInit {
   onScroll(ev: any):void {
     console.log('scrolled!!');
     this.helperService
-        .getAllProduct(this.user.listKeyWord,"facebook",++this.page)
+        .getAllProduct(this.user.listKeyWord,"facebook",this.selectedKindCluster,++this.page)
         .subscribe((cats: NewtDTO[]) => {
           this.productList.push(...cats);
         });
@@ -162,7 +163,7 @@ export class ShowListNewsComponent implements OnInit {
     this.getAllProduct();
   }
   public getTotal(): void{
-    this.helperService.getTotalProduct(this.user.listKeyWord,"facebook").subscribe((res: number)=>{
+    this.helperService.getTotalProduct(this.user.listKeyWord,"facebook", this.selectedKindCluster).subscribe((res: number)=>{
           this.count = res;
         },(error: HttpErrorResponse)=>{
           alert(error.message);
@@ -214,4 +215,11 @@ export class ShowListNewsComponent implements OnInit {
     this.page = 1;
     this.getAllProduct();
   }
+
+    onSelected(value: string) {
+      this.selectedKindCluster = value;
+      this.page = 1;
+      this.getAllProduct();
+      this.getTotal();
+    }
 }

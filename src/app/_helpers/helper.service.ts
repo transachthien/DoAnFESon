@@ -23,8 +23,8 @@ export class HelperService {
     return encodeURIComponent(param);
   }
 
-  public getAllProduct(name :string[], category:string,page:number = 1):Observable<any>{
-    const body = {name:name, category:category};
+  public getAllProduct(name :string[], category:string,kindCluster:string,page:number = 1):Observable<any>{
+    const body = {name:name, category:category,kindCluster:kindCluster};
     return this.http.post<any>(`${this.apiServerUrl}/api/product/getAllProduct?page=${page}`,body,this.httpOptions) as Observable<any>
   }
   public getProductDetail(id: number):Observable<any>{
@@ -39,8 +39,8 @@ export class HelperService {
   public addProduct(product:any):Observable<any>{
     return this.http.post<any>(`${this.apiServerUrl}/api/product/addProduct`,product,this.httpOptions)
   }
-  public getTotalProduct(name :string[],category:string):Observable<any>{
-    const body = {name:name, category:category};
+  public getTotalProduct(name :string[],category:string, kindCluster:string):Observable<any>{
+    const body = {name:name, category:category, kindCluster:kindCluster};
     return this.http.post<any>(`${this.apiServerUrl}/api/product/find`,body,this.httpOptions) as Observable<any>
 
   }
