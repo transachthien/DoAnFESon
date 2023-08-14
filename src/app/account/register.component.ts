@@ -7,7 +7,7 @@ import { AccountService,AlertService } from 'app/_services';
 import {PoupMessageComponent} from "../poup-message/poup-message.component";
 import {MatDialog} from "@angular/material/dialog";
 
-
+declare var $: any;
 @Component({ templateUrl: 'register.component.html',
     styleUrls: ['../../styles.css']})
 export class RegisterComponent implements OnInit {
@@ -68,10 +68,12 @@ export class RegisterComponent implements OnInit {
                 .pipe(first())
                 .subscribe({
                     next: () => {
+                        this.showNotification2(2,"Register thành công",'top','right');
                         this.alertService.success('Registration successful', { keepAfterRouteChange: true });
                         this.router.navigate(['/login'], { relativeTo: this.route });
                     },
                     error: error => {
+                        this.showNotification2(4,"Register thất bại",'top','right');
                         this.alertService.error(error);
                         this.loading = false;
                     }
@@ -107,4 +109,32 @@ export class RegisterComponent implements OnInit {
     //             }
     //         });
     // }
+    showNotification2(kind,mess,from, align){
+        const type = ['','info','success','warning','danger'];
+
+        // const color = Math.floor((Math.random() * 4) + 1);
+
+        $.notify({
+            icon: "notifications",
+            message: mess,
+
+        },{
+            type: type[kind],
+            timer: 4000,
+            placement: {
+                from: from,
+                align: align
+            },
+            template: '<div data-notify="container" class="col-xl-4 col-lg-4 col-11 col-sm-4 col-md-4 alert alert-{0} alert-with-icon" role="alert">' +
+                '<button mat-button  type="button" aria-hidden="true" class="close mat-button" data-notify="dismiss">  <i class="material-icons">close</i></button>' +
+                '<i class="material-icons" data-notify="icon">notifications</i> ' +
+                '<span data-notify="title">{1}</span> ' +
+                '<span data-notify="message">{2}</span>' +
+                '<div class="progress" data-notify="progressbar">' +
+                '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+                '</div>' +
+                '<a href="{3}" target="{4}" data-notify="url"></a>' +
+                '</div>'
+        });
+    }
 }
