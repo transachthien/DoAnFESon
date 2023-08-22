@@ -6,9 +6,12 @@
                     <div class="ct-chart" id="dailySalesChart"></div>
                 </div>
                 <div class="card-body">
-                    <h4 class="card-title">Số lượng bài viết theo keyword</h4>
+                    <h4 class="card-title">Số lượng bài viết theo Facebook</h4>
+                    <div *ngIf="listCount.length >0">
+                        <p class="card-category">Bảng ghi chú: </p>
+                        <p class="card-category" *ngFor="let item of listCount2">keyWord : {{item.keyword}}, mô tả: {{convertKeyWord(item.keyword)}} , số lượng: {{item.count}} </p>
+                    </div>
                     <p class="card-category">
-                        <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
                 </div>
                 <div class="card-footer">
                     <div class="stats">
@@ -26,8 +29,11 @@
                     <div class="ct-chart" id="websiteViewsChart"></div>
                 </div>
                 <div class="card-body">
-                    <h4 class="card-title">Số lượng bài viết theo ngày</h4>
-                    <p class="card-category">Last Campaign Performance</p>
+                    <h4 class="card-title">Số lượng bài viết theo New</h4>
+                    <div *ngIf="listCount.length >0">
+                        <p class="card-category">Bảng ghi chú: </p>
+                        <p class="card-category" *ngFor="let item of listCount">keyWord : {{item.keyword}}, mô tả: {{convertKeyWord(item.keyword)}} , số lượng: {{item.count}} </p>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <div class="stats">
@@ -37,4 +43,42 @@
             </div>
         </div>
     </div>
+<!--    <div class="row">-->
+<!--        <div class="col-md-6">-->
+<!--            <div class="card card-chart">-->
+<!--                <div class="card-header card-header-warning">-->
+<!--                    <div class="ct-chart" id="websiteViewsChart2"></div>-->
+<!--                </div>-->
+<!--                <div class="card-body">-->
+<!--                    <h4 class="card-title">Số lượng bài viết theo Facebook</h4>-->
+<!--                    <div *ngIf="listCount.length >0">-->
+<!--                        <p class="card-category">Bảng ghi chú: </p>-->
+<!--                        <p class="card-category" *ngFor="let item of listCount2">keyWord : {{item.keyword}}, mô tả: {{convertKeyWord(item.keyword)}} , số lượng: {{item.count}} </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="card-footer">-->
+<!--                    <div class="stats">-->
+<!--                        <i class="material-icons">access_time</i> campaign sent 2 days ago-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
+
+<!--<div class="col-md-4">-->
+<!--    <div class="card card-chart">-->
+<!--        <div class="card-header card-header-warning">-->
+<!--            <div class="ct-chart" id="websiteViewsChart"></div>-->
+<!--        </div>-->
+<!--        <div class="card-body">-->
+<!--            <h4 class="card-title">Email Subscriptions</h4>-->
+<!--            <p class="card-category">Last Campaign Performance</p>-->
+<!--        </div>-->
+<!--        <div class="card-footer">-->
+<!--            <div class="stats">-->
+<!--                <i class="material-icons">access_time</i> campaign sent 2 days ago-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->

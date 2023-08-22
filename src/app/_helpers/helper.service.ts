@@ -44,6 +44,16 @@ export class HelperService {
     return this.http.post<any>(`${this.apiServerUrl}/api/product/find`,body,this.httpOptions) as Observable<any>
 
   }
+  public findTotalNewInKeyWord(name :string[],category:string, kindCluster:string):Observable<any>{
+    const body = {name:name, category:category, kindCluster:kindCluster};
+    return this.http.post<any>(`${this.apiServerUrl}/api/product/findTotalNewInKeyWord`,body,this.httpOptions) as Observable<any>
+
+  }
+
+  public findTotalNewInCluster():Observable<any>{
+    return this.http.get<any>(`${this.apiServerUrl}/api/product/findTotalNewInCluster`,this.httpOptions) as Observable<any>
+
+  }
   public getAllListNewSave(name :string[]):Observable<any>{
     const body = {name:name};
     return this.http.post<any>(`${this.apiServerUrl}/api/product/findListNewSave`,body,this.httpOptions) as Observable<any>

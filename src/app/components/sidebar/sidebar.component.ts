@@ -19,8 +19,8 @@ declare interface IChildItem {
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '',type: 'link', },
     { path: '/list-content', title: 'Danh sách theo keyword',  icon:'bubble_chart', class: '' ,type: 'link',},
-    { path: '/typography', title: 'Thống kê bài viết theo bao trí',  icon:'library_books', class: '' ,type: 'link',},
-    { path: '/maps', title: 'Thống kê bài viết theo Facebook',  icon:'library_books', class: '' ,type: 'link',},
+    { path: '/typography', title: 'Thống kê bài viết theo chủ đề',  icon:'library_books', class: '' ,type: 'link',},
+    // { path: '/maps', title: 'Thống kê bài viết theo Facebook',  icon:'library_books', class: '' ,type: 'link',},
     // { path: '/user-profile', title: 'Danh sách theo chủ đề',  icon:'person', class: '',type: 'link', },
     // { path: '/table-list', title: 'Danh sách theo cá nhân',  icon:'content_paste', class: '',type: 'link', },
     { path: '/show-list-news', title: 'Tin bài theo FaceBook',  icon:'bubble_chart', class: '' ,type: 'link',},
